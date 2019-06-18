@@ -6,6 +6,8 @@ import android.content.ClipData;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button spamButton;
     Button copyButton;
+    Button clearButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) throws NumberFormatException{
         super.onCreate(savedInstanceState);
@@ -37,10 +40,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         spamButton = findViewById(R.id.spamButton);
         copyButton = findViewById(R.id.copyButton);
+        clearButton = findViewById(R.id.clearButton);
 
         //On button click, triggers onClick() function
         spamButton.setOnClickListener(this);
         copyButton.setOnClickListener(this);
+        clearButton.setOnClickListener(this);
+
+
 
 
 
@@ -78,7 +85,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         //Set text into the spammed text
                         text.setText(spammedText);
                         Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show();
+
                         copyButton.setVisibility(View.VISIBLE);
+                        clearButton.setVisibility(View.VISIBLE);
+
+
                     }
                     else
                         {
@@ -105,7 +116,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
-
+            case R.id.clearButton:
+                text.setText("");
+                number.setText("");
+                copyButton.setVisibility(View.INVISIBLE);
+                clearButton.setVisibility(View.INVISIBLE);
+                Toast.makeText(this, "Cleared", Toast.LENGTH_SHORT).show();
         }
 
     }
