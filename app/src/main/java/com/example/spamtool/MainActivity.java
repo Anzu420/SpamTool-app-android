@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button spamButton;
     Button copyButton;
     Button clearButton;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) throws NumberFormatException{
+    protected void onCreate(Bundle savedInstanceState) throws NumberFormatException {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -48,18 +49,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         clearButton.setOnClickListener(this);
 
 
-
-
-
-
     }
 
     @Override
-    public void onClick(View view) throws NumberFormatException{
+    public void onClick(View view) throws NumberFormatException {
 
         //Check which button was pressed
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             //SPAM button pressed
             case R.id.spamButton:
 
@@ -68,11 +64,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 numberStr = number.getText().toString();
 
                 //Check if the number string isn't null
-                if(!"".equals(numberStr))
-                {
+                if (!"".equals(numberStr)) {
                     spamNumber = Integer.valueOf(number.getText().toString());
 
-                    if(spamNumber != 0) {
+                    if (spamNumber != 0) {
                         for (int x = 1; x <= spamNumber; x++) {
                             if (x == 1) {
                                 spammedText = spamText;
@@ -90,24 +85,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         clearButton.setVisibility(View.VISIBLE);
 
 
+                    } else {
+                        Toast.makeText(this, "You can't make it zero", Toast.LENGTH_SHORT).show();
                     }
-                    else
-                        {
-                            Toast.makeText(this, "You can't make it zero", Toast.LENGTH_SHORT).show();
-                        }
-                    if(spamNumber == 103)
-                    {
-                        Toast.makeText(this, 	"\ud83d\udda4",Toast.LENGTH_LONG).show();
+                    if (spamNumber == 103) {
+                        Toast.makeText(this, "\ud83d\udda4", Toast.LENGTH_LONG).show();
                     }
                     break;
 
-                }
-                else {
+                } else {
                     Toast.makeText(this, "You didn't enter a number", Toast.LENGTH_SHORT).show();
                     break;
-                    }
+                }
 
-            //Copy button pressed
+                //Copy button pressed
             case R.id.copyButton:
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("simple text", spammedText);
