@@ -7,10 +7,6 @@ Requirement:
 
 Overall it's a pretty light app, but it does crash if you abuse the number of copy and pastes!
 
-## The development
-
-The app is being developed using Java!
-
 Software used:
 - Android Studio (IDE)
 - Photoshop (for the logo)
