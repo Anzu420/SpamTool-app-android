@@ -14,4 +14,3 @@ The app is being developed using Java!
 Software used:
 - Android Studio (IDE)
 - Photoshop (for the logo)
-- Github *obviously* (Version Control)
